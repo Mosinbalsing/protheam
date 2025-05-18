@@ -84,17 +84,24 @@ function DockLabel({ children, className = "", theme, ...rest }) {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{ opacity: 0, y: 0 }}
-          animate={{ opacity: 1, y: -10 }}
-          exit={{ opacity: 0, y: 0 }}
-          transition={{ duration: 0.2 }}
-          className={`${className} absolute -top-6 left-1/2 w-fit whitespace-pre rounded-md border px-2 py-0.5 text-xs ${
+          ref={ref}
+          style={{ width: size, height: size }}
+          onHoverStart={() => isHovered.set(1)}
+          onHoverEnd={() => isHovered.set(0)}
+          onFocus={() => isHovered.set(1)}
+          onBlur={() => isHovered.set(0)}
+          onClick={(event) => {
+            onClick();
+            event.currentTarget.blur(); // Removes focus after clicking
+          }}
+          className={`relative inline-flex items-center justify-center rounded-full shadow-md border-2 ${className} ${
             theme === "dark"
-              ? "bg-white text-black border-neutral-700"
-              : "bg-white text-black border-neutral-300"
+              ? "bg-[#060606] text-white border-neutral-700"
+              : "bg-black text-white border-neutral-800"
           }`}
-          role="tooltip"
-          style={{ x: "-50%" }}
+          tabIndex={0}
+          role="button"
+          aria-haspopup="true"
         >
           {children}
         </motion.div>
