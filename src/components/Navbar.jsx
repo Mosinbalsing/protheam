@@ -20,7 +20,10 @@ const Navbar = () => {
   const [mounted, setMounted] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   if (!mounted) return null;
 
   const toggleTheme = () => {
@@ -38,30 +41,26 @@ const Navbar = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white dark:bg-[#1c1d1f] border-b border-gray-200 dark:border-gray-700 shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        {/* Logo */}
         <Link to="/" className="text-2xl font-bold text-black dark:text-white transition-colors">
           Mosin
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-6 text-lg text-black dark:text-white">
           {navLinks.map((link) => (
-            <Link key={link.id} to={link.href} className="text-black dark:text-white hover:text-blue-500 transition-colors">
+            <Link key={link.id} to={link.href} className="hover:text-blue-500 transition-colors">
               {link.name}
             </Link>
           ))}
-          <button onClick={toggleTheme} aria-label="Toggle Theme" className="text-xl hover:text-blue-500 transition-colors">
+          <button onClick={toggleTheme} className="text-xl hover:text-blue-500 transition-colors">
             {theme === "dark" ? <FiSun /> : <FiMoon />}
           </button>
         </nav>
 
-        {/* Mobile Menu Button */}
         <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden text-2xl" aria-label="Toggle Menu">
           {isOpen ? <FiX /> : <FiMenu />}
         </button>
       </div>
 
-      {/* Mobile Navigation */}
       {isOpen && (
         <div className="lg:hidden bg-white dark:bg-[#1c1d1f] px-6 pb-4">
           {navLinks.map((link) => (
@@ -75,7 +74,6 @@ const Navbar = () => {
         </div>
       )}
 
-      {/* Mobile & Tablet Dock */}
       <div className="fixed bottom-2 left-0 w-full flex justify-center z-50 sm:flex md:flex">
         <Dock items={dockItems} panelHeight={70} baseItemSize={48} magnification={65} theme={theme} />
       </div>
