@@ -1,23 +1,16 @@
-"use client";
-import Particles from "@/reactbits/Particles/Particles";
 import { ReactLenis } from "lenis/react";
 export default function StackCard() {
   return (
     <ReactLenis root>
-      <main
-        className=""
-       
-      >
-     
-
-        <section className="text-white   w-full  ">
+      <main className="p-0">
+        <section className="text-white   w-full  p-0">
           <>
             <div className="sm:sticky sm:top-0  w-full ">
               <figure className="w-full h-screen flex items-center justify-center ">
                 <img
                   src="https://images.unsplash.com/photo-1718969604981-de826f44ce15?w=1200&auto=format&fit=crop"
                   alt=""
-                  className="transition-all duration-300 h-[80%] w-[55%]  align-bottom object-cover rounded-md "
+                  className="transition-all duration-300 h-[80%] w-[70%]  align-bottom object-cover rounded-md "
                 />
               </figure>
             </div>

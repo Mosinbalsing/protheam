@@ -27,7 +27,7 @@ const Abou = () => {
   };
 
   return (
-    <div className="relative min-h-[600px] w-full px-4 py-16 text-black dark:text-white bg-white dark:bg-transparent transition-colors duration-300">
+    <div className="relative min-h-[600px] w-full px-4 py-16 text-black  dark:text-white bg-white dark:bg-transparent transition-colors duration-300 overflow-hidden">
       {/* <div className="absolute top-4 right-4 z-50">
         <button
           onClick={toggleTheme}
@@ -90,22 +90,26 @@ const Abou = () => {
 
         {/* Right - Info Section */}
         <div className="text-center lg:text-left">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
+          <h1 className="text-xl sm:text-4xl md:text-5xl font-extrabold mb-4">
             Hi, I’m Mosin Balsing
           </h1>
-          <p className="text-lg md:text-xl leading-relaxed text-gray-800 dark:text-gray-300">
+
+          <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-800 dark:text-gray-300">
             A passionate Full Stack Developer 🚀 skilled in building web and
             mobile apps using React, Node.js, Django, Flutter, and more.
             <br className="hidden md:block" />I love creating interactive UIs
             and solving real-world problems with clean and scalable code.
           </p>
-          <div className="mt-6 flex gap-2">
-            <h1 className="ml-2 font-bold">Creative</h1>
-            <h1 className="font-bold">
+
+          <div className="mt-6 flex gap-2 flex-wrap items-center justify-center lg:justify-start">
+            <h1 className="font-bold text-xl sm:text-2xl md:text-3xl">
+              Creative
+            </h1>
+            <h1 className="font-bold text-xl sm:text-2xl md:text-3xl">
               <RotatingText
                 texts={["Thinker", "Coder", "Developer", "Designer"]}
-                mainClassName="px-2 sm:px-2 md:px-3 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg"
-                staggerFrom={"last"}
+                mainClassName="px-2 sm:px-3 md:px-4 bg-cyan-300 text-black overflow-hidden py-0.5 sm:py-1 md:py-2 justify-center rounded-lg font-bold"
+                staggerFrom="last"
                 initial={{ y: "100%" }}
                 animate={{ y: 0 }}
                 exit={{ y: "-120%" }}
