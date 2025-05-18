@@ -58,7 +58,7 @@ function DockItem({
       className={`relative inline-flex items-center justify-center rounded-full shadow-md border-2 ${className} ${
         theme === "dark"
           ? "bg-[#060606] text-white border-neutral-700"
-          : "bg-white text-black border-neutral-300"
+          : "bg-black text-white border-neutral-800"
       }`}
       tabIndex={0}
       role="button"
@@ -69,7 +69,7 @@ function DockItem({
   );
 }
 
-function DockLabel({ children, className = "",theme, ...rest }) {
+function DockLabel({ children, className = "", theme, ...rest }) {
   const { isHovered } = rest;
   const [isVisible, setIsVisible] = useState(false);
 
@@ -90,7 +90,7 @@ function DockLabel({ children, className = "",theme, ...rest }) {
           transition={{ duration: 0.2 }}
           className={`${className} absolute -top-6 left-1/2 w-fit whitespace-pre rounded-md border px-2 py-0.5 text-xs ${
             theme === "dark"
-              ? "bg-[#060606] text-white border-neutral-700"
+              ? "bg-white text-black border-neutral-700"
               : "bg-white text-black border-neutral-300"
           }`}
           role="tooltip"
@@ -162,7 +162,11 @@ export default function Dock({
             magnification={magnification}
             baseItemSize={baseItemSize}
           >
-            <DockIcon>{item.icon}</DockIcon>
+            <DockIcon>
+              <span className={theme === "dark" ? "text-white" : "text-white"}>
+                {item.icon}
+              </span>
+            </DockIcon>
             <DockLabel>{item.label}</DockLabel>
           </DockItem>
         ))}
