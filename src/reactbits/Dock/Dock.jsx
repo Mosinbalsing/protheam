@@ -1,5 +1,3 @@
-"use client";
-
 import {
   motion,
   useMotionValue,
@@ -25,6 +23,7 @@ function DockItem({
   distance,
   magnification,
   baseItemSize,
+  theme,
 }) {
   const ref = useRef(null);
   const isHovered = useMotionValue(0);
@@ -40,7 +39,7 @@ function DockItem({
   const targetSize = useTransform(
     mouseDistance,
     [-distance, 0, distance],
-    [baseItemSize, magnification, baseItemSize],
+    [baseItemSize, magnification, baseItemSize]
   );
   const size = useSpring(targetSize, spring);
 
@@ -56,7 +55,11 @@ function DockItem({
       onFocus={() => isHovered.set(1)}
       onBlur={() => isHovered.set(0)}
       onClick={onClick}
-      className={`relative inline-flex items-center justify-center rounded-full bg-[#060606] border-neutral-700 border-2 shadow-md ${className}`}
+      className={`relative inline-flex items-center justify-center rounded-full shadow-md border-2 ${className} ${
+        theme === "dark"
+          ? "bg-[#060606] text-white border-neutral-700"
+          : "bg-white text-black border-neutral-300"
+      }`}
       tabIndex={0}
       role="button"
       aria-haspopup="true"
@@ -66,7 +69,7 @@ function DockItem({
   );
 }
 
-function DockLabel({ children, className = "", ...rest }) {
+function DockLabel({ children, className = "",theme, ...rest }) {
   const { isHovered } = rest;
   const [isVisible, setIsVisible] = useState(false);
 
@@ -85,7 +88,11 @@ function DockLabel({ children, className = "", ...rest }) {
           animate={{ opacity: 1, y: -10 }}
           exit={{ opacity: 0, y: 0 }}
           transition={{ duration: 0.2 }}
-          className={`${className} absolute -top-6 left-1/2 w-fit whitespace-pre rounded-md border border-neutral-700 bg-[#060606] px-2 py-0.5 text-xs text-white`}
+          className={`${className} absolute -top-6 left-1/2 w-fit whitespace-pre rounded-md border px-2 py-0.5 text-xs ${
+            theme === "dark"
+              ? "bg-[#060606] text-white border-neutral-700"
+              : "bg-white text-black border-neutral-300"
+          }`}
           role="tooltip"
           style={{ x: "-50%" }}
         >
@@ -107,6 +114,7 @@ function DockIcon({ children, className = "" }) {
 export default function Dock({
   items,
   className = "",
+  theme = "light", // <-- ADD THIS LINE
   spring = { mass: 0.1, stiffness: 150, damping: 12 },
   magnification = 70,
   distance = 200,
@@ -119,7 +127,7 @@ export default function Dock({
 
   const maxHeight = useMemo(
     () => Math.max(dockHeight, magnification + magnification / 2 + 4),
-    [magnification, dockHeight],
+    [magnification, dockHeight]
   );
   const heightRow = useTransform(isHovered, [0, 1], [panelHeight, maxHeight]);
   const height = useSpring(heightRow, spring);
