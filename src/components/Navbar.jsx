@@ -135,7 +135,7 @@ const Navbar = () => {
 
       {/* Mobile Dock - Bottom Navigation */}
       {/* Mobile Dock - Bottom Navigation */}
-      <div className="hidden md:flex fixed bottom-2 left-0 w-full justify-center z-50">
+      <div className="flex fixed bottom-2 left-0 w-full justify-center z-50 sm:flex md:flex lg:flex">
         <Dock
           items={dockItems}
           panelHeight={70}
