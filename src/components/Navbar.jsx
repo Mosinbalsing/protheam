@@ -3,8 +3,10 @@ import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { FiSun, FiMoon, FiMenu, FiX } from "react-icons/fi";
 import { VscHome, VscArchive, VscAccount, VscSettingsGear } from "react-icons/vsc";
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 import Dock from "@/reactbits/Dock/Dock";
+import { GrProjects } from "react-icons/gr";
+import { RiContactsBook3Line } from "react-icons/ri";
 
 
 const navLinks = [
@@ -18,6 +20,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+    const navigate = useNavigate(); // Get the navigate function
 
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
@@ -26,10 +29,11 @@ const Navbar = () => {
   const closeMenu = () => setIsOpen(false);
 
   const dockItems = [
-    { icon: <VscHome size={22} />, label: 'Home', onClick: () => (window.location.href = "/") },
-    { icon: <VscArchive size={22} />, label: 'Projects', onClick: () => (window.location.href = "/projects") },
-    { icon: <VscAccount size={22} />, label: 'About', onClick: () => (window.location.href = "/about") },
-    { icon: <VscSettingsGear size={22} />, label: theme === "dark" ? "Light" : "Dark", onClick: toggleTheme },
+    { icon: <VscHome size={22} />, label: 'Home', onClick: () => navigate("/") },
+    { icon: <VscAccount size={22} />, label: 'About', onClick: () => navigate("/about") },
+    { icon: <GrProjects size={22} />, label: 'Projects', onClick: () => navigate("/projects") },
+    { icon: <RiContactsBook3Line size={22} />, label: 'Contact', onClick: () => navigate("/contact") },
+    { icon:  theme === "dark" ? <FiSun /> : <FiMoon />, label: theme === "dark" ? "Light" : "Dark", onClick: toggleTheme , },
   ];
 
   return (
