@@ -88,7 +88,7 @@ function DockLabel({ children, className = "", theme, ...rest }) {
           animate={{ opacity: 1, y: -10 }}
           exit={{ opacity: 0, y: 0 }}
           transition={{ duration: 0.2 }}
-          className={`${className} absolute -top-6 left-1/2 w-fit whitespace-pre rounded-md border px-2 py-0.5 text-xs ${
+          className={`${className} md:hidden absolute -top-6 left-1/2 w-fit whitespace-pre rounded-md border px-2 py-0.5 text-xs ${
             theme === "dark"
               ? "bg-white text-black border-neutral-700"
               : "bg-white text-black border-neutral-300"
