@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "jsx": "react-jsx", // Only needed for editor support
+    "module": "ESNext",
+    "target": "ES6"
+  },
+  "include": ["src"]
+}
