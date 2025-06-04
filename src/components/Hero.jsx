@@ -22,26 +22,28 @@ const Hero = () => {
     if (width < 640) {
       // Mobile
       return [
+         {
+          src: "assets/Technology/js.png",
+          alt: "JavaScript",
+          x: -200,
+          y: -250,
+        },
+         {
+          src: "assets/Technology/mongo.png",
+          alt: "MongoDB",
+          x: -180,
+          y: -350,
+        },
         {
           src: "assets/Technology/flutter.png",
           alt: "Flutter",
           x: -150,
           y: -450,
         },
-        {
-          src: "assets/Technology/mongo.png",
-          alt: "MongoDB",
-          x: -180,
-          y: -350,
-        },
-        { src: "assets/Technology/mysql2.png", alt: "MySQL", x: 50, y: -520 },
-        {
-          src: "assets/Technology/js.png",
-          alt: "JavaScript",
-          x: -200,
-          y: -250,
-        },
+       
+        
         { src: "assets/Technology/react.png", alt: "React", x: -60, y: -520 },
+        { src: "assets/Technology/mysql2.png", alt: "MySQL", x: 50, y: -520 },
         {
           src: "assets/Technology/nodejs.png",
           alt: "Node.js",
@@ -58,26 +60,28 @@ const Hero = () => {
     } else if (width < 1024) {
       // Tablet
       return [
+         {
+          src: "assets/Technology/js.png",
+          alt: "JavaScript",
+          x: -200,
+          y: -460,
+        },
+         {
+          src: "assets/Technology/mongo.png",
+          alt: "MongoDB",
+          x: -180,
+          y: -580,
+        },
         {
           src: "assets/Technology/flutter.png",
           alt: "Flutter",
           x: -100,
           y: -675,
         },
-        {
-          src: "assets/Technology/mongo.png",
-          alt: "MongoDB",
-          x: -180,
-          y: -580,
-        },
-        { src: "assets/Technology/mysql2.png", alt: "MySQL", x: 180, y: -600 },
-        {
-          src: "assets/Technology/js.png",
-          alt: "JavaScript",
-          x: -200,
-          y: -460,
-        },
+       
+        
         { src: "assets/Technology/react.png", alt: "React", x: 50, y: -675 },
+        { src: "assets/Technology/mysql2.png", alt: "MySQL", x: 180, y: -600 },
         {
           src: "assets/Technology/nodejs.png",
           alt: "Node.js",
@@ -94,11 +98,11 @@ const Hero = () => {
     } else {
       // Desktop
       return [
-        {
-          src: "assets/Technology/flutter.png",
-          alt: "Flutter",
-          x: -100,
-          y: -675,
+         {
+          src: "assets/Technology/js.png",
+          alt: "JavaScript",
+          x: -200,
+          y: -460,
         },
         {
           src: "assets/Technology/mongo.png",
@@ -106,14 +110,16 @@ const Hero = () => {
           x: -180,
           y: -580,
         },
-        { src: "assets/Technology/mysql2.png", alt: "MySQL", x: 180, y: -600 },
         {
-          src: "assets/Technology/js.png",
-          alt: "JavaScript",
-          x: -200,
-          y: -460,
+          src: "assets/Technology/flutter.png",
+          alt: "Flutter",
+          x: -100,
+          y: -675,
         },
+        
+        
         { src: "assets/Technology/react.png", alt: "React", x: 50, y: -675 },
+        { src: "assets/Technology/mysql2.png", alt: "MySQL", x: 180, y: -600 },
         {
           src: "assets/Technology/nodejs.png",
           alt: "Node.js",
@@ -152,7 +158,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="flex flex-col lg:flex-row justify-center items-center h-screen px-6 gap-32 lg:gap-8 relative overflow-visible">
+    <div className="flex flex-col lg:flex-row justify-center items-center h-screen  gap-32 lg:gap-8 relative overflow-hidden pt-[100px] sm:pt-0 lg:pt-0 w-full ">
       {/* Left Side Text */}
       <div className="text-center md:text-left max-w-2xl z-10">
         <SplitText
@@ -167,7 +173,7 @@ const Hero = () => {
           onLetterAnimationComplete={handleAnimationComplete}
         />
         <p className="text-xl md:text-2xl mt-6 leading-relaxed text-gray-700 dark:text-gray-300">
-          &emsp;A passionate Full Stack Developer 🚀 building Web and Mobile
+          A passionate Full Stack Developer 🚀 building Web and Mobile
           apps with React, Node.js, Flutter, and more.
         </p>
       
